@@ -1,11 +1,15 @@
 const express = require('express');
-const cors = require('cors')();
+const cors = require('cors');
 const app = express();
 const bodyParser = require('body-parser');
 
 const router = require('./router.js');
 
-app.use(cors)
+app.use(cors({
+  origin: ['http://localhost:3000', 'http://127.0.0.1:3000', 'https://room-one-client.herokuapp.com'],
+  default: 'https://room-one-client.herokuapp.com',
+  credentials: 'include'
+}))
 app.use(bodyParser.json());
 app.use(router);
 
