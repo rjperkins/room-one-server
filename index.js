@@ -6,7 +6,8 @@ const bodyParser = require('body-parser');
 const router = require('./router.js');
 
 app.use(cors({
-  origin: 'https://room-one-client.herokuapp.com',
+  origin: 'http://localhost:3000',
+  // origin: 'https://room-one-client.herokuapp.com',
   // default: 'https://room-one-client.herokuapp.com',
   credentials: 'include'
 }))
