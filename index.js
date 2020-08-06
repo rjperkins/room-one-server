@@ -7,7 +7,7 @@ const router = require('./router.js');
 
 app.use(cors({
   // origin: 'http://localhost:3000',
-  origin: 'https://room-one-client.herokuapp.com',
+  origin: process.env.NODE_ENV === 'production' ? 'http://www.room1official.com' : 'http://localhost:3000',
   // default: 'https://room-one-client.herokuapp.com',
   credentials: 'include'
 }))
