@@ -34,7 +34,7 @@ exports.getdjList = async (req, res) => {
 exports.getGalleryURLs = async (_, res) => {
 
   const options = {
-    headers: { 'Access-Control-Allow-Origin': 'www.room1official.com' }
+    headers: { 'mode': 'no-cors' }
   }
 
   try {
