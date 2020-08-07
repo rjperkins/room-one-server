@@ -38,7 +38,7 @@ exports.getGalleryURLs = async (_, res) => {
   }
 
   try {
-    await needle.get(`https://${process.env.COUDINARY_PUBLIC_KEY}:${process.env.COUDINARY_PRIVATE_KEY}@api.cloudinary.com/v1_1/dnonz22ez/resources/image?max_results=500`, options, function (error, response) {
+    await needle.request('get', `https://${process.env.COUDINARY_PUBLIC_KEY}:${process.env.COUDINARY_PRIVATE_KEY}@api.cloudinary.com/v1_1/dnonz22ez/resources/image?max_results=500`, options, function (error, response) {
       if (!error && response.statusCode === 200)
         res.status(200).send(response.body)
     });
