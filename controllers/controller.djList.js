@@ -32,13 +32,8 @@ exports.getdjList = async (req, res) => {
 }
 
 exports.getGalleryURLs = async (_, res) => {
-
-  const options = {
-    headers: { 'mode': 'no-cors' }
-  }
-
   try {
-    await needle('get', `https://${process.env.COUDINARY_PUBLIC_KEY}:${process.env.COUDINARY_PRIVATE_KEY}@api.cloudinary.com/v1_1/dnonz22ez/resources/image?max_results=500`, _, options, function (error, response) {
+    await needle.get(`https://${process.env.COUDINARY_PUBLIC_KEY}:${process.env.COUDINARY_PRIVATE_KEY}@api.cloudinary.com/v1_1/dnonz22ez/resources/image?max_results=500`, function (error, response) {
       if (!error && response.statusCode === 200)
         res.status(200).send(response.body)
     });
